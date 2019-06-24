@@ -29,15 +29,24 @@ setInterval(function(){
 
     // character.style.left / bottom are both strings: "0px"
     // If we want to do some arithmatic, we'll need to parse them into integers:
-    const left = parseInt(character.style.left)
+     const left = parseInt(character.style.left)
     const bottom = parseInt(character.style.bottom)
+    
 
     // If the character is moving right, the distance between him and the left side of the screen should increase
     // What is speed?
-    if(direction == 'right'){
-        character.style.left = `${left+speed}px`
-    }
+    if (direction == 'left')
+        {character.style.left = `${left-speed}px`}
 
+     if (direction == 'right')
+        {character.style.left = `${left+speed}px`}
+
+     if (direction == 'up')
+        {character.style.bottom = `${bottom+speed}px`}
+
+     if (direction == 'down')
+        {character.style.bottom = `${bottom-speed}px`}
+    
     // Account for other directions here:
 
 }, 20) // <- What is this number?
@@ -50,18 +59,22 @@ function walkRight(){
     direction = 'right'
 }
 
-
 // Finish the functions below:
 
 function walkLeft(){
+    character.src = `${ASSET_ROOT}/walkleft.gif`
+    direction = 'left'
 
 }
 
 function walkUp(){
-
+    character.src = `${ASSET_ROOT}/walkup.gif`
+    direction = 'up'
 }
 
 function walkDown(){
+    character.src = `${ASSET_ROOT}/walkdown.gif`
+    direction = 'down'
 
 }
 
